@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "headless-service.appName" . }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ include "headless-service.hostName" . }}`)
+      services:
+      - name: {{ include "headless-service.appName" . }}
+        port: 80
+  tls:
+    secretName: {{ include "headless-service.appName" . }}-tls

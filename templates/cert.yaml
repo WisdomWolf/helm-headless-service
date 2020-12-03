@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: {{ include "headless-service.appName" . }}-cert
+spec:
+  commonName: {{ include "headless-service.hostName" . }}
+  dnsNames:
+    - {{ include "headless-service.hostName" . }}
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  secretName: {{ include "headless-service.appName" . }}-tls
