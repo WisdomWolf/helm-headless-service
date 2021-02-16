@@ -9,6 +9,6 @@ entries:
     name: headless-service
     type: application
     urls:
-    - https://helm-charts.developingwisdom.org/headless-service-0.1.0.tgz
+    - https://wise-charts.developingwisdom.org/headless-service-0.1.0.tgz
     version: 0.1.0
 generated: "2021-02-16T14:54:09.560671774-05:00"
